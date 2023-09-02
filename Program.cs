@@ -42,7 +42,7 @@
             Console.WriteLine();
             Console.WriteLine($"Triangel B har en bas-bredd, bas-höjd och höjd på: [{t_b.BaseWidth:#.###}, {t_b.BaseHeight:#.###}, {t_b.Height:#.###}]");
             Console.WriteLine($"Triangel B har arean: {t_b.getArea():#.###}");
-            Console.WriteLine($"Triangel B har omkretsen: {t_b.getCircumference:#.###}");
+            Console.WriteLine($"Triangel B har omkretsen: {t_b.getCircumference():#.###}");
             Console.WriteLine($"Triangel B har volymen: {t_b.getVolume():#.###}");
             Console.WriteLine();
             Console.WriteLine($"Triangel C har en bas-bredd, bas-höjd och höjd på: [{t_c.BaseWidth:#.###}, {t_c.BaseHeight:#.###}, {t_c.Height:#.###}]");
