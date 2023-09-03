@@ -22,10 +22,6 @@
         // one currently being used by the two sub classes Circle and Triangle, but since we are using OOP
         // it's very easy to implement and build upon to add or remove attributes to the super class or the
         // sub classes as needed
-        // I decided to make multiple constructors for both Circle and Triangle incase we want to create
-        // a 2D or 3D object. In the case of creating the 2D objects we asume the 3D aspect of the object
-        // but having an extra constructor just incase the use wants to create a object with all the variables
-        // required for calculating a 3D object, it's possible to do so
         static void Main(string[] args)
         {
             // Creating 2 Circle objects where circle a have a radius of 5 and circle b have a radius of 6
@@ -122,6 +118,7 @@
         // The access modifier is set to protected to keep
         // the attributes inside the class and encapsulate them
         protected int _Radius { get; set; }
+
         // The constructor for the Circle class
         // takes an int as the radius as input
         public Circle(int radius)
@@ -350,14 +347,20 @@
 
             if (_BaseWidth == _Height)
             {
-                // Equilateral Triangle Circumference Formula: 3 * b
+                // Equilateral Triangle Circumference Formula: 3 * s
+                // Worthy to note that we multiply _BaseHeight with 3 because
+                // in a Equilateral Triangle we have 3 sides where the values
+                // are the same because of the way we create our object in the
+                // constructor this is the _BaseHeight
                 circumference = 3 * _BaseWidth;
             }
             else
             {
-                // Isosceles Triangle Circumference Formula: 2 * b + h
-
-
+                // Isosceles Triangle Circumference Formula: 2 * a + b
+                // Worthy to note that we multiply _BaseHeight with 2 because
+                // in a Isosceles Triangle we have 2 sides where the values are 
+                // the same because of the way we create our object in the 
+                // constructor the two sides that are equal is the _BaseHeight
                 circumference = 2 * _BaseHeight + _BaseWidth;
             }
 
