@@ -9,11 +9,29 @@
         // I would have preferred to name them GetArea.... 
         // Í would not have named the protected or private variables _Radius...
         // I would have preferred to name them _radius...
+
+        // The reason I choose to encapsulate the attributes is so that in future implementations
+        // of the software we do not run the risk of accessing the attributes outside of the object.
+        // We eliminate the risk of creating a new object and accidently setting the value of another
+        // object causing unforseen errors or in the case of a user with the interest of accessing 
+        // said attributes for usage in other ways than intended they will be restricted.
+        // I choose to have public get accessors to some attributes so that we can use them for writing
+        // to the console outside of the class or I.E passing in as arguments for algorithms where maybe the
+        // radius of c_a is required to make the correct calculation
+        // I decided to only have the _Height attribute in the abstract super class Shape since it's the only
+        // one currently being used by the two sub classes Circle and Triangle, but since we are using OOP
+        // it's very easy to implement and build upon to add or remove attributes to the super class or the
+        // sub classes as needed
+        // I decided to make multiple constructors for both Circle and Triangle incase we want to create
+        // a 2D or 3D object. In the case of creating the 2D objects we asume the 3D aspect of the object
+        // but having an extra constructor just incase the use wants to create a object with all the variables
+        // required for calculating a 3D object, it's possible to do so
         static void Main(string[] args)
         {
             // Creating 2 Circle objects where circle a have a radius of 5 and circle b have a radius of 6
             Circle c_a = new(5);
             Circle c_b = new(6);
+
             // Creating 3 Triangle Objects where
             // Triangle a is a equilateral triangle and have the 3 equal sides of the size 6
             // Triangle b is a isosceles triangle and have the baseWidth of 5 and 2 equal sides of 6
@@ -21,6 +39,11 @@
             Triangle t_a = new(5);
             Triangle t_b = new(5, 6);
             Triangle t_c = new(5, 6, 7);
+
+            // Creating a Triangle with values that we do not accept to test the functionality of the error handling class VerifiedUserInput
+            // and it's methods GetPositveInt and GetPositveDouble
+            Triangle t_faulty = new(4, 0, -2.718281828459045);
+
             // Writing to the console with the value returns of the method in the classes of Circle A, B and Triangle A, B, C
             // Since we return variables of the type ´double´ I decided to limit the amount of decimals to three by using `:#.###`
             // to limit the output to the console but not limiting the accuracy of the calculated results
@@ -35,20 +58,29 @@
             Console.WriteLine($"Cirkel B har omkretsen: {c_b.getCircumference():#.###}");
             Console.WriteLine($"Cirkel B har volymen: {c_b.getVolume():#.###}");
             Console.WriteLine();
-            Console.WriteLine($"Triangel A har en bas-bredd, bas-höjd och höjd på: [{t_a.BaseWidth:#.###}, {t_a.BaseHeight:#.###}, {t_a.Height:#.###}]");
+            Console.WriteLine($"Triangel A har en basbredd, bashöjd och höjd på: " +
+            $"[{t_a.BaseWidth:#.###}, {t_a.BaseHeight:#.###}, {t_a.Height:#.###}]");
             Console.WriteLine($"Triangel A har arean: {t_a.getArea():#.###}");
             Console.WriteLine($"Triangel A har omkretsen: {t_a.getCircumference():#.###}");
             Console.WriteLine($"Triangel A har volymen: {t_a.getVolume():#.###}");
             Console.WriteLine();
-            Console.WriteLine($"Triangel B har en bas-bredd, bas-höjd och höjd på: [{t_b.BaseWidth:#.###}, {t_b.BaseHeight:#.###}, {t_b.Height:#.###}]");
+            Console.WriteLine($"Triangel B har en basbredd, bashöjd och höjd på: " +
+            $"[{t_b.BaseWidth:#.###}, {t_b.BaseHeight:#.###}, {t_b.Height:#.###}]");
             Console.WriteLine($"Triangel B har arean: {t_b.getArea():#.###}");
             Console.WriteLine($"Triangel B har omkretsen: {t_b.getCircumference():#.###}");
             Console.WriteLine($"Triangel B har volymen: {t_b.getVolume():#.###}");
             Console.WriteLine();
-            Console.WriteLine($"Triangel C har en bas-bredd, bas-höjd och höjd på: [{t_c.BaseWidth:#.###}, {t_c.BaseHeight:#.###}, {t_c.Height:#.###}]");
+            Console.WriteLine($"Triangel C har en basbredd, bashöjd och höjd på: " +
+            $"[{t_c.BaseWidth:#.###}, {t_c.BaseHeight:#.###}, {t_c.Height:#.###}]");
             Console.WriteLine($"Triangel C har arean: {t_c.getArea():#.###}");
             Console.WriteLine($"Triangel C har omkretsen: {t_c.getCircumference():#.###}");
             Console.WriteLine($"Triangel C har volymen: {t_c.getVolume():#.###}");
+            Console.WriteLine();
+            Console.WriteLine($"Triangeln med initieringsfel har en basbredd, bashöjd och höjd på: " +
+            $"[{t_faulty.BaseWidth:#.###}, {t_faulty.BaseHeight:#.###}, {t_faulty.Height:#.###}]");
+            Console.WriteLine($"Triangeln med initieringsfel har arean: {t_c.getArea():#.###}");
+            Console.WriteLine($"Triangeln med initieringsfel har omkretsen: {t_c.getCircumference():#.###}");
+            Console.WriteLine($"Triangeln med initieringsfel har volymen: {t_c.getVolume():#.###}");
             // Console.ReadKey() so the software doesnt instantly shut down
             Console.ReadKey();
         }
@@ -66,6 +98,7 @@
         // The only attribute that is reused in all subclasses is _Height
         // It would not make sense to have _Radius in the Shape super class since
         // the triangle class have no need for a _Radius variable
+
         protected double _Height { get; set; }
 
         // Making _PI to a constant since it will always be the same no matter what
