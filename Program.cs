@@ -48,35 +48,46 @@
             Console.WriteLine($"Cirkel A har arean: {c_a.getArea():#.###}");
             Console.WriteLine($"Cirkel A har omkretsen: {c_a.getCircumference():#.##}");
             Console.WriteLine($"Cirkel A har volymen: {c_a.getVolume():#.###}");
+
             Console.WriteLine();
+
             Console.WriteLine($"Cirkel B har en radie på: {c_b.Radius:#.###}");
             Console.WriteLine($"Cirkel B har arean: {c_b.getArea():#.###}");
             Console.WriteLine($"Cirkel B har omkretsen: {c_b.getCircumference():#.###}");
             Console.WriteLine($"Cirkel B har volymen: {c_b.getVolume():#.###}");
+
             Console.WriteLine();
+
             Console.WriteLine($"Triangel A har en basbredd, bashöjd och höjd på: " +
             $"[{t_a.BaseWidth:#.###}, {t_a.BaseHeight:#.###}, {t_a.Height:#.###}]");
             Console.WriteLine($"Triangel A har arean: {t_a.getArea():#.###}");
             Console.WriteLine($"Triangel A har omkretsen: {t_a.getCircumference():#.###}");
             Console.WriteLine($"Triangel A har volymen: {t_a.getVolume():#.###}");
+
             Console.WriteLine();
+
             Console.WriteLine($"Triangel B har en basbredd, bashöjd och höjd på: " +
             $"[{t_b.BaseWidth:#.###}, {t_b.BaseHeight:#.###}, {t_b.Height:#.###}]");
             Console.WriteLine($"Triangel B har arean: {t_b.getArea():#.###}");
             Console.WriteLine($"Triangel B har omkretsen: {t_b.getCircumference():#.###}");
             Console.WriteLine($"Triangel B har volymen: {t_b.getVolume():#.###}");
+
             Console.WriteLine();
+
             Console.WriteLine($"Triangel C har en basbredd, bashöjd och höjd på: " +
             $"[{t_c.BaseWidth:#.###}, {t_c.BaseHeight:#.###}, {t_c.Height:#.###}]");
             Console.WriteLine($"Triangel C har arean: {t_c.getArea():#.###}");
             Console.WriteLine($"Triangel C har omkretsen: {t_c.getCircumference():#.###}");
             Console.WriteLine($"Triangel C har volymen: {t_c.getVolume():#.###}");
+
             Console.WriteLine();
+
             Console.WriteLine($"Triangeln med initieringsfel har en basbredd, bashöjd och höjd på: " +
             $"[{t_faulty.BaseWidth:#.###}, {t_faulty.BaseHeight:#.###}, {t_faulty.Height:#.###}]");
             Console.WriteLine($"Triangeln med initieringsfel har arean: {t_c.getArea():#.###}");
             Console.WriteLine($"Triangeln med initieringsfel har omkretsen: {t_c.getCircumference():#.###}");
             Console.WriteLine($"Triangeln med initieringsfel har volymen: {t_c.getVolume():#.###}");
+
             // Console.ReadKey() so the software doesnt instantly shut down
             Console.ReadKey();
         }
@@ -132,9 +143,11 @@
 
             // Assigning _Radius to controlledRadius
             _Radius = controlledRadius;
+
             // Assigning _Height to the controlledRadius * 2
             _Height = controlledRadius * 2;
         }
+
         // A second constructor for the Circle Class that overloads the first one allowing the user
         // to pass in a radius and a height when creating the Circle
         public Circle(int radius, double height)
@@ -155,9 +168,11 @@
 
             // Assigning _Radius to controlledRadius
             _Radius = controlledRadius;
+
             // Assigning _Height to controlledHeight
             _Height = controlledHeight;
         }
+
         // Public int Radius is a accessor for users to be able to get the Radius of the Circle object outside
         // of the scope of the class
         public int Radius
@@ -174,9 +189,11 @@
             // of the Circle Area Formula seen above
             // Using Math.Pow(_Radius, 2) to calculate _Radius²
             double area = Math.Pow(_Radius, 2) * _PI;
+
             // returning the area
             return area;
         }
+
         // the SuperClass method getCircumference is being implemented here with the `override`
         // keyword to be able to define it for the Circle class
         public override double getCircumference()
@@ -186,11 +203,13 @@
             // the value of the Circle Circumference Formula seen above
             // Using our constant from the SuperClass Shape _pi
             double circumference = 2 * _PI * _Radius;
+
             // returning the circumference
             return circumference;
         }
         // The SuperClass method getVolume is being implemented here with the `override` keyword
         // to be able to define it for the Circle class
+
         public override double getVolume()
         {
             // Circle Volume Formula: CV = pi ∗ r² ∗ h
@@ -199,11 +218,13 @@
             // Using our constant from the SuperClass Shape _pi
             // Using Math.Pow(_Radius, 2) to calculate _Radius²
             double volume = _PI * Math.Pow(_Radius, 2) * _Height;
+
             // returning the volume
             return volume;
         }
     }
     // New class Triangle that inherits the Shape class
+
     public class Triangle : Shape
     {
         // The Triangle class gets its own _BaseWidth and _BaseHeight attribute
@@ -217,6 +238,7 @@
         // we are creating an equilateral triangle and only require
         // one input to the constructor where we then assign the
         // base widh, base height and heigh to the same value
+
         public Triangle(int baseWidth)
         {
             // Asuming a Equilateral Triangle (Liksidig Triangel)
@@ -230,14 +252,17 @@
 
             // Assigning _BaseWidth to controlledBaseWidth
             _BaseWidth = controlledBaseWidth;
+
             // Assigning _BaseHeight to controlledBaseWidth
             _BaseHeight = controlledBaseWidth;
+
             // Assigning _Height to controlledBaseWidth
             _Height = controlledBaseWidth;
         }
         // A second constructor for the Triangle Class that overloads the first one allowing the user
         // to pass in a baseWidth and a baseHeight when creating the Triangle
         // This asumes we are creating an isosceles triangle
+
         public Triangle(int baseWidth, int baseHeight)
         {
             // Asuming a Isosceles Triangle (Likbent Triangel)
@@ -248,6 +273,7 @@
             int controlledBaseWidth = VerifiedUserInput.GetPositveInt(baseWidth,
                                       "Fel format på basbredden vid skapande av Triangel objektet\n" +
                                       "Ange basbredden med ett positivt heltal: ");
+
             // Creating a new int controlledBaseHeight and setting it to the return of the
             // GetPositiveInt method wich takes the baseHeight and a prompt
             // (incase we need to reassign the baseHeight to a new value) as input
@@ -257,11 +283,14 @@
 
             // Assigning _BaseWidth to controlledBaseWidth
             _BaseWidth = controlledBaseWidth;
+
             // Assigning _BaseHeight to controlledBaseHeight
             _BaseHeight = controlledBaseHeight;
+
             // Assigning _Height to the return of the PythagorasFormula Method
             _Height = PythagorasFormula();
         }
+
         public Triangle(int baseWidth, int baseHeight, double height)
         {
             // Creating a new int controlledBaseWidth and setting it to the return of the
@@ -270,12 +299,14 @@
             int controlledBaseWidth = VerifiedUserInput.GetPositveInt(baseWidth,
                                       "Fel format på basbredden vid skapande av Triangel objektet\n" +
                                       "Ange basbredden med ett positivt heltal: ");
+
             // Creating a new int controlledBaseHeight and setting it to the return of the
             // GetPositiveInt method wich takes the baseHeight and a prompt
             // (incase we need to reassign the baseHeight to a new value) as input
             int controlledBaseHeight = VerifiedUserInput.GetPositveInt(baseHeight,
                                        "Fel format på bashöjden vid skapande av Triangel objektet\n" +
                                        "Ange bashöjden med ett positivt heltal: ");
+
             // Creating a new double controlledHeight and setting it to the return of the
             // GetPositveDouble method wich takes the height and a prompt
             // (incase we need to reassign the height to a new value) as input
@@ -285,8 +316,10 @@
 
             // Assigning _BaseWidth to controlledBaseWidth
             _BaseWidth = controlledBaseWidth;
+
             // Assigning _BaseHeight to controlledBaseHeight
             _BaseHeight = controlledBaseHeight;
+
             // Assigning _Height to controlledHeight
             _Height = controlledHeight;
         }
@@ -296,20 +329,24 @@
         {
             get { return _BaseWidth; }
         }
+
         // Public accessor for the user to get access to the value of BaseHeight
         public int BaseHeight
         {
             get { return _BaseHeight; }
         }
+
         // Public accessor for the user to get access to the value of Height
         public double Height
         {
             get { return _Height; }
         }
+
         // Private method thats incase the user creates an Isosceles Triangle and wants
         // to calculate the area, we use this method to get the height of the triangle
         // to be able to calculate the Area
         // returns the height as a double
+
         private double PythagorasFormula()
         {
             // Pythagoras Forumla: c² = a² + b² 
@@ -326,16 +363,20 @@
             // Ensuring that we force a double by dividing by 2.0 instead of 2
             double newBase = _BaseWidth / 2.0;
             double height = Math.Sqrt(Math.Pow(_BaseHeight, 2) - Math.Pow(newBase, 2));
+
+            // returning the height
             return height;
         }
+
         // The SuperClass method getArea is being implemented here with the `override` keyword
         // to be able to define it for the Triangle class
         public override double getArea()
         {
             // Triangle Area Formula: A = 1/2 * b * h
-
             // Ensuring that we force a double by dividing by 1.0 instead of 1
             double area = 1.0 / 2 * _BaseWidth * _Height;
+
+            // returning the area
             return area;
         }
         // the SuperClass method getCircumference is being implemented here with the `override`
@@ -343,8 +384,11 @@
 
         public override double getCircumference()
         {
+            // Creating a new double circumference that will be used later in the method
             double circumference;
 
+            // Logic to be able to decide if we are dealing with a Equilateral Triangle
+            // or a Isosceles Triangle
             if (_BaseWidth == _Height)
             {
                 // Equilateral Triangle Circumference Formula: 3 * s
@@ -366,6 +410,7 @@
 
             return circumference;
         }
+
         // The SuperClass method getVolume is being implemented here with the `override` keyword
         // to be able to define it for the Triangle class
         public override double getVolume()
@@ -377,9 +422,9 @@
             // Ensuring that we force a double by dividing by 1.0 instead of 1
             // Using the getArea method instead of writing it out the formula for the triangle
             // area when we already did that work earlier
-
             double volume = 1.0 / 3 * getArea() * _Height;
 
+            // returning the volume
             return volume;
         }
 
@@ -396,8 +441,14 @@
             // If the int have a positive value we return the int
             if (unkownInt > 0)
             {
+                // The int recieved from the input was greater then 0
+                // and is allowed we can go ahead and return the int
+                // since no further validation is required
+
+                // returning the int
                 return unkownInt;
             }
+
             // If the int have a negative value we start a do while (true) loop (infite loop until we get a value we accept)
             else
             {
@@ -405,24 +456,31 @@
                 {
                     // Writing the prompt to the console
                     Console.Write(prompt);
+
                     // if statement that uses int.TryParse with the Console.ReadLine as input
                     // it tries to convert the input from the user to an int and returns a true or false
                     // value. True if it succeeds in parsing it as an int and it outputs a new int validInt
                     // False if the TryParse fails and we cannot parse it as an int
                     if (int.TryParse(Console.ReadLine(), out int validInt))
                     {
-                        // The user input succeeded in parsing as an int, making sure tha value is greater than 0
+                        // The user input succeeded in parsing as an int, making sure the value is greater than 0
                         if (validInt > 0)
                         {
-                            // The value is greater than 0, returning the value
+                            // The int we got from the user output from int.TryParse is 
+                            // greater than 0 and is allowed we can go ahead and return the 
+                            // int since no further validation is required
+
+                            // returning the int
                             return validInt;
                         }
                     }
+
                     // The value was either not an integer or its value was not greater than 0
                     // The loop will restart
                 } while (true);
             }
         }
+
         // public static method that takes a double and a prompt as input. The method checks if the value is greater than 0
         // in other words, it's making sure that the value is not a negative value
         public static double GetPositveDouble(double unkownDouble, string prompt)
@@ -439,6 +497,7 @@
                 {
                     // Writing the prompt to the console
                     Console.Write(prompt);
+
                     // if statement that uses double.TryParse with the Console.ReadLine as input
                     // it tries to convert the input from the user to a double and returns a true or false
                     // value. True if it succeeds in parsing it as a double and it outputs a new double validDouble
@@ -452,6 +511,7 @@
                             return validDouble;
                         }
                     }
+
                     // The value was either not a double or its value was not greater than 0.0
                     // The loop will restart
                 } while (true);
